@@ -110,6 +110,8 @@ a:focus-visible{outline:2px solid #4CC9F0;outline-offset:3px;border-radius:6px}
 (function(){var sc=document.getElementById('heroScene'),t=document.getElementById('heroTilt');if(!sc||!t)return;
 sc.addEventListener('mousemove',function(e){var r=sc.getBoundingClientRect();var x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;t.style.transform='rotateX('+(58-y*16)+'deg) rotateZ('+(-45+x*22)+'deg)';});
 sc.addEventListener('mouseleave',function(){t.style.transform='rotateX(58deg) rotateZ(-45deg)';});})();
+
+(function(){var b=document.querySelector('.build');if(!b)return;var sup=window.CSS&&CSS.supports&&CSS.supports('animation-timeline: view()');if(sup)return;b.classList.add('js-on');function u(){var r=b.getBoundingClientRect();var tot=r.height-window.innerHeight;var p=tot>0?Math.min(1,Math.max(0,-r.top/tot)):0;b.style.setProperty('--bp',(p*0.999).toFixed(4));}window.addEventListener('scroll',u,{passive:true});window.addEventListener('resize',u);u();})();
 </script>
 </body>
 </html>
